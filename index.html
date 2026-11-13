@@ -1,0 +1,1785 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UP SUPERTET 2026 - CDP & Teaching Skills Mock Test Portal</title>
+    <style>
+        :root {
+            --primary: #1e40af;
+            --primary-light: #eff6ff;
+            --primary-hover: #1d4ed8;
+            --secondary: #0f766e;
+            --bg-main: #ffffff;
+            --bg-subtle: #f8fafc;
+            --bg-card: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --border-color: #e2e8f0;
+            --success: #15803d;
+            --success-bg: #dcfce7;
+            --danger: #b91c1c;
+            --danger-bg: #fee2e2;
+            --warning: #b45309;
+            --warning-bg: #fef3c7;
+            --review: #7e22ce;
+            --review-bg: #f3e8ff;
+            --input-bg: #ffffff;
+            --exp-bg: #eff6ff;
+            --exp-text: #1e3a8a;
+        }
+
+        body.dark-mode {
+            --primary: #3b82f6;
+            --primary-light: #1e293b;
+            --primary-hover: #60a5fa;
+            --secondary: #14b8a6;
+            --bg-main: #0b1120;
+            --bg-subtle: #111827;
+            --bg-card: #1e293b;
+            --text-dark: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --success: #22c55e;
+            --success-bg: rgba(34, 197, 94, 0.16);
+            --danger: #f87171;
+            --danger-bg: rgba(248, 113, 113, 0.16);
+            --warning: #fbbf24;
+            --warning-bg: rgba(251, 191, 36, 0.16);
+            --review: #c084fc;
+            --review-bg: rgba(192, 132, 252, 0.16);
+            --input-bg: #0f172a;
+            --exp-bg: #172554;
+            --exp-text: #bfdbfe;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        /* Header */
+        header {
+            background-color: #1e3a8a;
+            color: #ffffff;
+            padding: 1rem 1.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .brand h1 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        .brand span {
+            font-size: 0.82rem;
+            opacity: 0.9;
+            display: block;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .header-actions button {
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.35);
+            padding: 0.45rem 0.85rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.84rem;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .header-actions button:hover {
+            background: rgba(255,255,255,0.28);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 1.5rem auto;
+            padding: 0 1.2rem;
+        }
+
+        /* Views */
+        .view {
+            display: none;
+        }
+        .view.active {
+            display: block;
+        }
+
+        /* Home / Topic Selection View */
+        .control-panel {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.4rem;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            min-width: 200px;
+            flex: 1;
+        }
+
+        .form-group label {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+        }
+
+        select, input[type="number"] {
+            padding: 0.65rem 0.85rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.94rem;
+            background: var(--input-bg);
+            color: var(--text-dark);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 0.72rem 1.4rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: #fff;
+            border: none;
+            padding: 0.72rem 1.3rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .section-title {
+            font-size: 1.18rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            gap: 1.1rem;
+        }
+
+        .topic-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.2rem;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        }
+
+        .topic-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .topic-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 0.6rem;
+        }
+
+        .topic-badge {
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            white-space: nowrap;
+            border: 1px solid var(--border-color);
+        }
+
+        .topic-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .topic-meta {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .topic-actions {
+            display: flex;
+            gap: 0.6rem;
+        }
+
+        .topic-actions button {
+            flex: 1;
+            padding: 0.52rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid var(--primary);
+        }
+
+        .btn-start-topic {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .btn-add-q {
+            background: transparent;
+            color: var(--primary);
+        }
+
+        /* Quiz View */
+        .quiz-layout {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 850px) {
+            .quiz-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-main {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .quiz-topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 1.2rem;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .mode-pill {
+            display: inline-block;
+            font-size: 0.76rem;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            margin-left: 8px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .timer-box {
+            background: var(--warning-bg);
+            color: var(--warning);
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .question-number {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.05rem;
+        }
+
+        .question-text {
+            font-size: 1.12rem;
+            font-weight: 600;
+            margin-bottom: 1.3rem;
+            color: var(--text-dark);
+            white-space: pre-line;
+        }
+
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .option-item {
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.85rem 1.1rem;
+            cursor: pointer;
+            transition: 0.15s;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 0.98rem;
+            background: var(--bg-main);
+        }
+
+        .option-item:hover:not(.locked) {
+            background: var(--bg-subtle);
+            border-color: var(--primary);
+        }
+
+        .option-item.selected {
+            background: var(--primary-light);
+            border-color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Quiz Mode Immediate Feedback Colors */
+        .option-item.quiz-correct {
+            background: var(--success-bg) !important;
+            border-color: var(--success) !important;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .option-item.quiz-correct .option-prefix {
+            background: var(--success) !important;
+            color: #ffffff !important;
+        }
+
+        .option-item.quiz-wrong {
+            background: var(--danger-bg) !important;
+            border-color: var(--danger) !important;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .option-item.quiz-wrong .option-prefix {
+            background: var(--danger) !important;
+            color: #ffffff !important;
+        }
+
+        .option-prefix {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--border-color);
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .option-item.selected .option-prefix {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        /* Live Quiz Explanation & Auto-Next Banner */
+        .live-quiz-feedback {
+            margin-top: 1.2rem;
+            padding: 1rem 1.1rem;
+            border-radius: 8px;
+            background: var(--exp-bg);
+            color: var(--exp-text);
+            border-left: 4px solid var(--primary);
+            font-size: 0.94rem;
+        }
+
+        .auto-next-bar {
+            margin-top: 0.75rem;
+            padding-top: 0.65rem;
+            border-top: 1px dashed var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: var(--warning);
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .quiz-footer {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.8rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .btn-outline {
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            padding: 0.6rem 1.1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .btn-review {
+            background: var(--review-bg);
+            color: var(--review);
+            border: 1px solid var(--review);
+            padding: 0.6rem 1.1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .btn-submit {
+            background: var(--success);
+            color: #fff;
+            border: none;
+            padding: 0.65rem 1.4rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        /* Sidebar Palette */
+        .quiz-sidebar {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.2rem;
+            height: fit-content;
+        }
+
+        .palette-legend {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            font-size: 0.78rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .palette-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.45rem;
+            max-height: 360px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .pal-btn {
+            padding: 0.45rem 0;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            color: var(--text-dark);
+            border-radius: 5px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .pal-btn.current {
+            border: 2px solid var(--primary);
+        }
+
+        .pal-btn.answered {
+            background: var(--success);
+            color: #fff;
+            border-color: var(--success);
+        }
+
+        .pal-btn.wrong-ans {
+            background: var(--danger);
+            color: #fff;
+            border-color: var(--danger);
+        }
+
+        .pal-btn.marked {
+            background: var(--review);
+            color: #fff;
+            border-color: var(--review);
+        }
+
+        .pal-btn.visited {
+            background: var(--danger-bg);
+            color: var(--danger);
+            border-color: var(--danger);
+        }
+
+        /* Result View */
+        .score-banner {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.8rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-top: 1.2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .stat-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .result-action-buttons {
+            margin-top: 1.4rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .review-card {
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.3rem;
+            margin-bottom: 1.2rem;
+            background: var(--bg-card);
+            page-break-inside: avoid;
+        }
+
+        .review-card.correct-card {
+            border-left: 5px solid var(--success);
+        }
+
+        .review-card.wrong-card {
+            border-left: 5px solid var(--danger);
+        }
+
+        .review-card.skipped-card {
+            border-left: 5px solid #94a3b8;
+        }
+
+        .explanation-box {
+            margin-top: 0.9rem;
+            padding: 0.9rem;
+            background: var(--exp-bg);
+            border-radius: 6px;
+            font-size: 0.92rem;
+            color: var(--exp-text);
+        }
+
+        /* Modal for Importing 151 Questions */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal-box {
+            background: var(--bg-card);
+            color: var(--text-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            max-width: 720px;
+            width: 100%;
+            padding: 1.6rem;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.4);
+        }
+
+        .modal-box textarea {
+            width: 100%;
+            height: 220px;
+            padding: 0.8rem;
+            border: 1px solid var(--border-color);
+            background: var(--input-bg);
+            color: var(--text-dark);
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            margin: 0.8rem 0;
+        }
+
+        /* Print Styles for Eco-Friendly Paper Print / PDF Export */
+        @media print {
+            header, .result-action-buttons, .modal-overlay {
+                display: none !important;
+            }
+            body, body.dark-mode {
+                background: #ffffff !important;
+                color: #000000 !important;
+            }
+            .container {
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .score-banner, .stat-card, .review-card {
+                border: 1px solid #94a3b8 !important;
+                background: #ffffff !important;
+                color: #000000 !important;
+            }
+            .explanation-box {
+                background: #f8fafc !important;
+                border: 1px solid #cbd5e1 !important;
+                color: #000000 !important;
+            }
+        }
+    </style>
+</head>
+<body class="dark-mode">
+
+<header>
+    <div class="brand">
+        <h1>UP SUPERTET 2026 - Mock Test Portal</h1>
+        <span>All 18 PDF Topics | Quiz Mode (Auto-Next) & Exam Mode</span>
+    </div>
+    <div class="header-actions">
+        <button id="themeToggleBtn" onclick="toggleTheme()">☀️ Light Mode</button>
+        <button onclick="openImportModal()">+ Import Questions (JSON)</button>
+        <button onclick="goHome()">All Topics</button>
+    </div>
+</header>
+
+<div class="container">
+    <!-- HOME / SELECT TOPIC VIEW -->
+    <div id="homeView" class="view active">
+        <div class="control-panel">
+            <div class="form-group" style="min-width: 260px;">
+                <label for="topicSelect">1. Select Topic (PDF Wise / Mix Test)</label>
+                <select id="topicSelect">
+                    <option value="ALL">All 18 Topics (Combined Mega Mock Test)</option>
+                </select>
+            </div>
+            <div class="form-group" style="min-width: 220px;">
+                <label for="testModeSelect">2. Select Mode</label>
+                <select id="testModeSelect">
+                    <option value="QUIZ">Quiz Mode (Instant Explanation + Auto Switch)</option>
+                    <option value="EXAM">Exam Mode (Submit at End)</option>
+                </select>
+            </div>
+            <div class="form-group" style="max-width: 160px;">
+                <label for="questionLimit">3. Questions</label>
+                <select id="questionLimit">
+                    <option value="ALL">All Available</option>
+                    <option value="151">151 Questions</option>
+                    <option value="50">50 Questions</option>
+                    <option value="30">30 Questions</option>
+                    <option value="15">15 Questions</option>
+                </select>
+            </div>
+            <div class="form-group" style="max-width: 140px;">
+                <label for="timeLimit">4. Timer (Min)</label>
+                <input type="number" id="timeLimit" value="150" min="5" max="300">
+            </div>
+            <button class="btn-primary" onclick="startSelectedMock()">Start Test</button>
+        </div>
+
+        <div class="section-title">
+            <span>18 PDF Topics Library</span>
+            <span id="totalBankCount" style="font-size: 0.9rem; color: var(--primary);"></span>
+        </div>
+
+        <div class="topics-grid" id="topicsGrid"></div>
+    </div>
+
+    <!-- QUIZ / EXAM INTERFACE VIEW -->
+    <div id="quizView" class="view">
+        <div class="quiz-layout">
+            <div class="quiz-main">
+                <div class="quiz-topbar">
+                    <div>
+                        <span class="question-number" id="qCounter">Question 1 of 10</span>
+                        <span class="mode-pill" id="activeModePill">QUIZ MODE</span>
+                        <div id="qTopicBadge" style="font-size: 0.82rem; color: var(--text-muted); margin-top: 2px;"></div>
+                    </div>
+                    <div class="timer-box" id="timerDisplay">00:00</div>
+                </div>
+
+                <div class="question-text" id="questionText"></div>
+                <div class="options-list" id="optionsContainer"></div>
+
+                <!-- Live Explanation & Auto-Switch Box (Only visible in Quiz Mode after answering) -->
+                <div id="liveFeedbackBox" class="live-quiz-feedback" style="display: none;">
+                    <div id="liveResultHeader" style="font-weight: 700; margin-bottom: 4px;"></div>
+                    <div id="liveExplanationText"></div>
+                    <div id="autoNextBar" class="auto-next-bar">
+                        <span id="autoCountdownText"></span>
+                        <button class="btn-outline" style="padding: 0.25rem 0.65rem; font-size: 0.8rem;" onclick="cancelAutoAdvance()">⏸ Pause Auto-Switch</button>
+                    </div>
+                </div>
+
+                <div class="quiz-footer">
+                    <div>
+                        <button class="btn-outline" onclick="prevQuestion()">← Previous</button>
+                        <button class="btn-outline" id="clearBtn" onclick="clearResponse()">Clear</button>
+                    </div>
+                    <div>
+                        <button class="btn-review" id="reviewBtn" onclick="toggleMarkReview()">Mark for Review</button>
+                        <button class="btn-primary" id="nextBtn" onclick="nextQuestion()">Save & Next →</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-sidebar">
+                <h4 style="margin-bottom: 0.6rem;">Question Palette</h4>
+                <div class="palette-legend">
+                    <div class="legend-item"><span class="dot" style="background: var(--success);"></span> Answered / Right</div>
+                    <div class="legend-item"><span class="dot" style="background: var(--danger);"></span> Wrong / Unanswered</div>
+                    <div class="legend-item"><span class="dot" style="background: var(--review);"></span> Marked</div>
+                    <div class="legend-item"><span class="dot" style="background: var(--bg-card); border:1px solid var(--border-color);"></span> Not Visited</div>
+                </div>
+                <div class="palette-grid" id="paletteGrid"></div>
+                <button class="btn-submit" style="width: 100%; margin-top: 1.2rem;" onclick="submitQuiz()">Finish & Submit Test</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULT & EXPLANATION VIEW -->
+    <div id="resultView" class="view">
+        <div class="score-banner">
+            <h2 id="resultTitle">Mock Test Analysis</h2>
+            <p id="resultSubtitle" style="color: var(--text-muted); margin-top: 4px;"></p>
+            <div class="stats-row">
+                <div class="stat-card">
+                    <h3 id="statTotal" style="color: var(--primary);">0</h3>
+                    <span>Total Questions</span>
+                </div>
+                <div class="stat-card">
+                    <h3 id="statCorrect" style="color: var(--success);">0</h3>
+                    <span>Correct</span>
+                </div>
+                <div class="stat-card">
+                    <h3 id="statWrong" style="color: var(--danger);">0</h3>
+                    <span>Incorrect</span>
+                </div>
+                <div class="stat-card">
+                    <h3 id="statSkipped" style="color: var(--text-muted);">0</h3>
+                    <span>Unattempted</span>
+                </div>
+                <div class="stat-card">
+                    <h3 id="statAccuracy" style="color: var(--secondary);">0%</h3>
+                    <span>Accuracy</span>
+                </div>
+            </div>
+            <div class="result-action-buttons">
+                <button class="btn-secondary" onclick="printResult()">🖨️ Print / Save Result PDF</button>
+                <button class="btn-primary" onclick="goHome()">Back to Topic Selection</button>
+            </div>
+        </div>
+
+        <div class="section-title">Detailed Solutions & Explanations</div>
+        <div id="reviewContainer"></div>
+    </div>
+</div>
+
+<!-- IMPORT QUESTIONS MODAL -->
+<div class="modal-overlay" id="importModal">
+    <div class="modal-box">
+        <h3>Import 151 Questions Batch (JSON Format)</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px;">
+            चैट से प्राप्त टॉपिक के 151 प्रश्नों का JSON कोड नीचे पेस्ट करें। यह आपके ब्राउज़र में स्थायी रूप से सेव हो जाएगा।
+        </p>
+        <div class="form-group" style="margin-top: 0.8rem;">
+            <label for="importTopicSelect">Target Topic (किस PDF टॉपिक में जोड़ना है?)</label>
+            <select id="importTopicSelect"></select>
+        </div>
+        <textarea id="importJsonInput" placeholder='[
+  {
+    "q": "प्रश्न यहाँ लिखें...",
+    "options": ["विकल्प A", "विकल्प B", "विकल्प C", "विकल्प D"],
+    "ans": 0,
+    "exp": "विस्तृत व्याख्या यहाँ लिखें..."
+  }
+]'></textarea>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <button class="btn-outline" style="color: var(--danger);" onclick="resetSavedData()">Reset Custom Data</button>
+            <div>
+                <button class="btn-outline" onclick="closeImportModal()">Cancel</button>
+                <button class="btn-primary" onclick="processImport()">Save Questions to Topic</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// ============================================================================
+// 0. AUTO DARK MODE INITIALIZATION
+// ============================================================================
+function initTheme() {
+    const savedTheme = localStorage.getItem("supertet_theme");
+    // Default to dark mode automatically, or follow system/saved preference
+    if (savedTheme === "light") {
+        document.body.classList.remove("dark-mode");
+        document.getElementById("themeToggleBtn").textContent = "🌙 Dark Mode";
+    } else {
+        document.body.classList.add("dark-mode");
+        document.getElementById("themeToggleBtn").textContent = "☀️ Light Mode";
+    }
+}
+
+function toggleTheme() {
+    const isDark = document.body.classList.toggle("dark-mode");
+    localStorage.setItem("supertet_theme", isDark ? "dark" : "light");
+    document.getElementById("themeToggleBtn").textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
+}
+
+// ============================================================================
+// 1. ALL 18 PDF TOPICS MASTER LIST
+// ============================================================================
+const TOPICS = [
+    { id: "t1", name: "1. Individual Differences (वैयक्तिक विभिन्नता)" },
+    { id: "t2", name: "2. Inclusive Education (समावेशी शिक्षा)" },
+    { id: "t3", name: "3. Educational Evaluation and Measurement (शैक्षिक मूल्यांकन एवं मापन)" },
+    { id: "t4", name: "4. Assessment & Evaluation (आकलन एवं मूल्यांकन)" },
+    { id: "t5", name: "5. Educational Management (शैक्षिक प्रबंधन)" },
+    { id: "t6", name: "6. Teacher (शिक्षक)" },
+    { id: "t7", name: "7. Guidance and Counselling (मार्गदर्शन और परामर्श)" },
+    { id: "t8", name: "8. Early Reading Skills (आरंभिक पठन कौशल)" },
+    { id: "t9", name: "9. Education (शिक्षा)" },
+    { id: "t10", name: "10. Teaching (शिक्षण)" },
+    { id: "t11", name: "11. Constitutional Articles (संवैधानिक अनुच्छेद एवं बाल अधिकार)" },
+    { id: "t12", name: "12. RTE 2009 (शिक्षा का अधिकार अधिनियम 2009)" },
+    { id: "t13", name: "13. Learning (अधिगम)" },
+    { id: "t14", name: "14. Psychologists & Their Theories (मनोवैज्ञानिक एवं उनके सिद्धांत)" },
+    { id: "t15", name: "15. Characteristics of Professional Ethics (व्यावसायिक नैतिकता की विशेषताएँ)" },
+    { id: "t16", name: "16. Life Skills (जीवन कौशल)" },
+    { id: "t17", name: "17. Growth & Development (वृद्धि एवं विकास)" },
+    { id: "t18", name: "18. Motivation (अभिप्रेरणा)" }
+];
+
+// ============================================================================
+// 2. BUILT-IN QUESTION BANK (Pre-loaded with authentic PYQs from your 18 PDFs)
+// ============================================================================
+const DEFAULT_QUESTION_BANK = {
+    "t1": [
+        {
+            q: "अधिगमकर्ता की अभिवृत्ति, अभिरुचि, उपलब्धि एवं अधिगम शैली में अंतर किस प्रकार की विभिन्नताओं को दर्शाता है?",
+            options: ["सामाजिक विभिन्नताएँ", "अधिगम विभिन्नताएँ", "संवेगात्मक विभिन्नताएँ", "वैयक्तिक विभिन्नताएँ"],
+            ans: 3,
+            exp: "अभिवृत्ति, रुचि, उपलब्धि तथा अधिगम शैली व्यक्ति के समग्र व्यक्तित्व के विभिन्न आयाम हैं। लियोना टायलर एवं स्किनर के अनुसार यह वैयक्तिक विभिन्नता (Individual Differences) को दर्शाता है।"
+        },
+        {
+            q: "“एक या अनेक विशेषताओं के संबंध में व्यक्तियों के बीच पाई जाने वाली भिन्नता या विचलन” किसकी परिभाषा है?",
+            options: ["ऑसबोर्न", "स्किनर", "कार्टर बी. गुड", "स्पीयरमैन"],
+            ans: 2,
+            exp: "कार्टर बी. गुड (Carter B. Good) ने Dictionary of Education में स्पष्ट किया है कि किसी समूह के सदस्यों के मध्य किसी एक या अधिक विशेषताओं के विचलन (Variation) को वैयक्तिक विभिन्नता कहते हैं।"
+        },
+        {
+            q: "शिक्षा के संदर्भ में आमतौर पर किस पहलू को सामाजिक विविधता का आयाम नहीं माना जाता है?",
+            options: ["समूह पहचान के आधार के रूप में जाति", "छात्रों के बीच क्षेत्रीय अंतर", "विविधता के प्रतीक के रूप में भाषा", "विद्यालयों का भौतिक बुनियादी ढांचा (इन्फ्रास्ट्रक्चर)"],
+            ans: 3,
+            exp: "जाति, क्षेत्र, धर्म और भाषा सामाजिक-सांस्कृतिक विविधता के अंग हैं, जबकि विद्यालय का भवन व भौतिक बुनियादी ढांचा संरचनात्मक संसाधन है।"
+        },
+        {
+            q: "डॉल्टन योजना (Dalton Plan) में निम्नलिखित में से क्या नहीं होता है?",
+            options: ["स्वयं सीखना", "कठोर समय-सारणी (Timetable)", "सहयोग", "स्वतंत्रता"],
+            ans: 1,
+            exp: "हेलेन पार्कहर्स्ट की डॉल्टन प्रयोगशाला योजना में कठोर समय-सारणी और घंटियों का बंधन नहीं होता; विद्यार्थी अपनी गति से कार्य करते हैं।"
+        }
+    ],
+    "t2": [
+        {
+            q: "भारतीय पुनर्वास परिषद (Rehabilitation Council of India - RCI) की स्थापना किस उद्देश्य के लिए हुई है?",
+            options: ["दूरस्थ शिक्षा", "पर्यावरण शिक्षा", "दिव्यांगजन की शिक्षा (Education of PwD)", "उपर्युक्त में से कोई नहीं"],
+            ans: 2,
+            exp: "RCI Act, 1992 दिव्यांग व्यक्तियों की शिक्षा एवं पुनर्वास से जुड़े विशेष शिक्षकों के प्रशिक्षण मानकों और पंजीकरण को नियंत्रित करने हेतु पारित किया गया।"
+        },
+        {
+            q: "समावेशी शिक्षा में निम्नलिखित में से क्या शामिल है?",
+            options: ["सभी शिक्षार्थियों के लिए मानक पाठ्यचर्या", "विद्यार्थियों का योग्यताओं के आधार पर पृथक्करण", "विशेष आवश्यकता वाले शिक्षार्थियों के लिए केवल व्यावसायिक शिक्षा", "व्यक्तिगत अंतरों की पहचान के परिणामस्वरूप पाठ्यचर्या में लचीलापन"],
+            ans: 3,
+            exp: "समावेशी शिक्षा का मूल मंत्र है कि व्यवस्था बच्चे के अनुरूप बदले—अर्थात् व्यक्तिगत विभिन्नता के अनुसार पाठ्यचर्या में लचीलापन हो।"
+        },
+        {
+            q: "प्रतिभाशाली बच्चों की शिक्षा की वह विधि, जिसमें उन्हें पाठ्यक्रम को सामान्य से अधिक तेज गति से पूरा कराया जाता है, कहलाती है-",
+            options: ["विभेदीकृत शिक्षण", "संवर्धन (Enrichment)", "त्वरण (Acceleration)", "निमज्जन (Immersion)"],
+            ans: 2,
+            exp: "त्वरण (Acceleration) वह रणनीति है जिसमें मेधावी बालक को सामान्य से तेज गति से अगली कक्षाओं या उच्च पाठ्यक्रम में आगे बढ़ाया जाता है।"
+        }
+    ],
+    "t3": [
+        {
+            q: "मापों के बीच सार्थक अंतराल की अनुमति देने वाला लेकिन वास्तविक शून्य बिंदु (True Zero Point) न रखने वाला किस प्रकार का चर होता है?",
+            options: ["नाममात्र (Nominal)", "क्रमसूचक (Ordinal)", "अंतराल (Interval)", "अनुपात (Ratio)"],
+            ans: 2,
+            exp: "अंतराल मापनी (Interval Scale) में इकाइयों का अंतर समान होता है, किंतु वास्तविक/निरपेक्ष शून्य नहीं होता (जैसे तापमान 0°C या परीक्षा में 0 अंक)।"
+        },
+        {
+            q: "“मापन किन्हीं स्वीकृत नियमों के अनुसार वस्तुओं को अंक प्रदान करने की प्रक्रिया है।” यह परिभाषा किसने दी है?",
+            options: ["मॉरिसन", "रिचर्ड एच. लिंडेमैन", "एस. एस. स्टीवंस", "थॉर्नडाइक"],
+            ans: 2,
+            exp: "एस. एस. स्टीवंस ने 1946 में मापन की यह सार्वभौमिक परिभाषा प्रतिपादित की थी।"
+        },
+        {
+            q: "एक शिक्षक विद्यार्थियों को ईमानदारी, सहयोग, नेतृत्व और अनुशासन जैसे गुणों में अपनी व्यक्तिगत प्राथमिकताओं के आधार पर वरीयता क्रम देने के लिए कहता है। यह किस प्रकार का मापन है?",
+            options: ["मानसिक मापन", "भौतिक मापन", "सामान्यीकृत मापन", "इप्सेटिव मापन (Ipsative Measurement)"],
+            ans: 3,
+            exp: "जब व्यक्ति बाहरी समूह से तुलना किए बिना स्वयं के भीतर ही अपने गुणों या प्राथमिकताओं को वरीयता क्रम देता है, तो उसे इप्सेटिव मापन कहते हैं।"
+        }
+    ],
+    "t4": [
+        {
+            q: "मूल्यांकन एवं मापन के सम्बन्ध का निर्धारण निम्न में से किस सूत्र द्वारा प्रदर्शित किया जा सकता है?",
+            options: ["मापन = मूल्यांकन + मूल्य निर्धारण", "मूल्यांकन = मापन + मूल्य निर्धारण", "मापन = मूल्यांकन", "मूल्य निर्धारण = मापन + मूल्यांकन"],
+            ans: 1,
+            exp: "मूल्यांकन (Evaluation) = मापन (Measurement) + मूल्य निर्धारण (Value Judgment)।"
+        },
+        {
+            q: "रूब्रिक्स (Rubrics) क्या है?",
+            options: ["अधिगम की सामग्री का संकलन", "विभिन्न विषयों के मूल्यांकन के लिए मानदंड समूह", "विभिन्न विषयों से संबंधित शैक्षणिक प्रक्रियाएँ", "विद्यार्थियों की प्रगति रिपोर्ट"],
+            ans: 1,
+            exp: "रूब्रिक्स पूर्व-निर्धारित मानदंडों (Set of Criteria) का समूह एवं स्कोरिंग मार्गदर्शिका है जो मूल्यांकन को वस्तुनिष्ठ व पारदर्शी बनाता है।"
+        },
+        {
+            q: "निम्नलिखित में से कौन-सा सतत और व्यापक मूल्यांकन (CCE) से संबंधित नहीं है?",
+            options: ["इसे शिक्षा के अधिकार अधिनियम द्वारा अनिवार्य किया गया है", "यह शिक्षण-अधिगम प्रक्रिया का अभिन्न अंग है", "यह विभिन्न शिक्षा क्षेत्रों में बच्चे की उपलब्धि पर केंद्रित है", "यह बच्चों को धीमे, खराब या बुद्धिमान के रूप में चिह्नित करने में उपयोगी होता है"],
+            ans: 3,
+            exp: "CCE का उद्देश्य बच्चों को लेबल करना (धीमा या खराब ठप्पा लगाना) नहीं, बल्कि अधिगम में सुधार करना है।"
+        }
+    ],
+    "t5": [
+        {
+            q: "“संस्थागत योजना निर्माण राष्ट्र विकास में मील का पत्थर है तथा राष्ट्र की प्रगति का भविष्यगत द्योतक है।” यह कथन किसका है?",
+            options: ["एम. बी. बुच", "प्रो. एस. के. दुबे", "आर. एस. डेवर", "जेम्स लुण्डे"],
+            ans: 1,
+            exp: "यह प्रसिद्ध परिभाषा भारतीय शिक्षाशास्त्री प्रो. एस. के. दुबे द्वारा संस्थागत नियोजन के महत्व को रेखांकित करते हुए दी गई है।"
+        },
+        {
+            q: "आदर्श रूप में स्कूल विकास योजना (SDP) बनाने का कार्य किसे देना चाहिए?",
+            options: ["प्रधानाचार्य एवं उप-प्रधानाचार्य को", "प्रधानाचार्य, उप-प्रधानाचार्य एवं स्कूल निरीक्षक को", "शिक्षक, अभिभावक एवं स्कूल से पास हुए लोग (Alumni)", "केवल शिक्षा अधिकारियों को"],
+            ans: 2,
+            exp: "RTE 2009 के लोकतांत्रिक विकेंद्रीकरण के अनुसार SDP एक सहभागी योजना है जिसमें शिक्षक, अभिभावक और पुरातन छात्र (Passouts) शामिल होने चाहिए।"
+        },
+        {
+            q: "NCTE की स्थापना मुख्यतः निम्नलिखित में से किस उद्देश्य से की गई थी?",
+            options: ["शिक्षा का सार्वभौमीकरण करना", "भारत के शिक्षकों को एकजुट करना", "शिक्षक शिक्षा में अनुसंधान पर बल देना", "शिक्षक शिक्षा प्रणाली का योजनाबद्ध एवं समन्वित विकास करना"],
+            ans: 3,
+            exp: "NCTE Act, 1993 की प्रस्तावना के अनुसार इसका मूल उद्देश्य देश में अध्यापक शिक्षा प्रणाली का योजनाबद्ध और समन्वित विकास करना है।"
+        }
+    ],
+    "t6": [
+        {
+            q: "शिक्षक को ज्ञान का 'सह-निर्माता' (Co-constructor) कहने का सबसे उपयुक्त अर्थ क्या है?",
+            options: ["शिक्षक ही सम्पूर्ण ज्ञान का निर्माण करता है", "विद्यार्थी केवल शिक्षक द्वारा दिए गए ज्ञान को ग्रहण करता है", "शिक्षक और विद्यार्थी संवाद तथा अनुभव के माध्यम से ज्ञान-निर्माण में सहभागी होते हैं", "शिक्षक शिक्षण प्रक्रिया में अपनी भूमिका समाप्त कर देता है"],
+            ans: 2,
+            exp: "रचनावाद (Constructivism) में शिक्षक और विद्यार्थी परस्पर संवाद और अनुभवों के माध्यम से सक्रिय रूप से ज्ञान का सह-निर्माण करते हैं।"
+        },
+        {
+            q: "ऐसा नेतृत्व जिसमें न्यूनतम नियंत्रण (Minimum Control) अंतर्ग्रस्त होता है, वह निम्नांकित में से क्या है?",
+            options: ["लोकतांत्रिक नेतृत्व", "अहस्तक्षेप नेतृत्व (Laissez-Faire Leadership)", "सत्तावादी नेतृत्व", "नेतृत्वक्षमता के वैयक्तिक गुण"],
+            ans: 1,
+            exp: "अहस्तक्षेप नेतृत्व (Laissez-Faire / Free-Rein) में नेता न्यूनतम नियंत्रण रखता है और टीम को निर्णय लेने की पूर्ण स्वतंत्रता देता है।"
+        }
+    ],
+    "t7": [
+        {
+            q: "निम्नलिखित में से किस मामले में मार्गदर्शन (Guidance) की आवश्यकता होती है?",
+            options: ["शैक्षिक रूप से मेधावी छात्र जो विज्ञान विषय चुनने के बाद कक्षा-XI में अनुत्तीर्ण हो गया", "विज्ञान विषय का छात्र जो प्रयोगशाला में प्रयोग नहीं कर पाता", "कक्षा XI में शैक्षिक चिंता के लक्षण दिखाने वाला छात्र", "वैज्ञानिक नियमों और सूत्रों को रटने वाला छात्र"],
+            ans: 0,
+            exp: "मेधावी छात्र का विषय चयन के बाद अनुत्तीर्ण होना गलत स्ट्रीम चयन व रुचि-क्षमता असंतुलन का संकेत है, जहाँ शैक्षिक एवं व्यावसायिक मार्गदर्शन अनिवार्य है।"
+        },
+        {
+            q: "परामर्शदाता की सहायता से परामर्शार्थी स्वयं अपनी समस्या का विश्लेषण करके, समस्या को सुलझाने का मार्ग ढूँढना इस प्रकार का परामर्श है-",
+            options: ["निर्देश परामर्श (Directive)", "अनिर्देशित परामर्श (Non-Directive)", "सारग्राही परामर्श (Eclectic)", "व्यक्तिगत परामर्श"],
+            ans: 1,
+            exp: "कार्ल रोजर्स द्वारा प्रतिपादित अनिर्देशित परामर्श (Non-Directive Counselling) पूरी तरह परामर्शार्थी-केंद्रित होता है जिसमें वह स्वयं समाधान खोजता है।"
+        }
+    ],
+    "t8": [
+        {
+            q: "पाठ में लिखा है— 'रवि घर से छाता लेकर निकला। थोड़ी देर बाद सड़कें भीग गईं।' विद्यार्थी निष्कर्ष निकालता है कि संभवतः वर्षा हुई थी। यह किस प्रकार का बोध है?",
+            options: ["तथ्यात्मक बोध", "निष्कर्षात्मक बोध (Inferential Comprehension)", "शब्द-बोध", "ध्वनि-बोध"],
+            ans: 1,
+            exp: "पाठ में प्रत्यक्ष रूप से वर्षा न लिखे होने पर भी दिए गए संकेतों से तार्किक अनुमान लगाना निष्कर्षात्मक बोध (Inferential Comprehension) कहलाता है।"
+        },
+        {
+            q: "बच्चों में शुरुआती पठन कौशल विकसित करने के लिए निम्नलिखित में से क्या महत्वपूर्ण है?",
+            options: ["बिना बातचीत के चुपचाप बैठना", "मुद्रित अक्षरों और शब्दों के बार-बार संपर्क में आना (Print-Rich Environment)", "गुणा सारणी को याद करना", "चुपचाप कार्टून देखना"],
+            ans: 1,
+            exp: "निपुण भारत (FLN) व NCF 2005 के अनुसार प्रिंट-समृद्ध वातावरण में मुद्रित अक्षरों के बार-बार संपर्क में आने से आरंभिक पठन सहज विकसित होता है।"
+        }
+    ],
+    "t9": [
+        {
+            q: "शिक्षा की लैटिन व्युत्पत्ति के संदर्भ में 'Educere' शब्द का सही अर्थ क्या है?",
+            options: ["पालन-पोषण करना", "अंतर्निहित शक्तियों को बाहर लाना (To draw out)", "शिक्षण अथवा प्रशिक्षण का कार्य", "अनुशासन एवं नियंत्रण स्थापित करना"],
+            ans: 1,
+            exp: "Educere (E = बाहर + Ducere = ले जाना) का अर्थ बालक की अंतर्निहित शक्तियों को बाहर निकालकर विकसित करना है।"
+        },
+        {
+            q: "डेलर्स आयोग (1996) की रिपोर्ट में उल्लिखित शिक्षा के चार स्तंभों में से कौन-सा भारतीय आदर्श 'वसुधैव कुटुम्बकम्' को प्रतिबिंबित करता है?",
+            options: ["जानने के लिए सीखना (Learning to Know)", "करने के लिए सीखना (Learning to Do)", "बनने के लिए सीखना (Learning to Be)", "साथ मिलकर रहने के लिए सीखना (Learning to Live Together)"],
+            ans: 3,
+            exp: "Learning to Live Together वैश्विक बंधुत्व, शांति, सहिष्णुता और 'वसुधैव कुटुम्बकम्' की भावना को प्रतिबिंबित करता है।"
+        },
+        {
+            q: "प्रो. यशपाल समिति (1992-93) की रिपोर्ट का मुख्य शीर्षक और मूल भावना क्या थी?",
+            options: ["पाठ्यपुस्तकों में अधिकाधिक सूचनाएँ जोड़ना", "सीखने के बोझ को कम करते हुए समझ और बाहरी जीवन से ज्ञान जोड़ना (Learning Without Burden)", "परीक्षा-केंद्रित अध्ययन बढ़ाना", "कठोर रटने की प्रणाली"],
+            ans: 1,
+            exp: "यशपाल समिति की रिपोर्ट 'Learning Without Burden' (शिक्षा बिना बोझ के) ने रटन और बस्ते के बोझ को कम कर समझ पर बल दिया।"
+        }
+    ],
+    "t10": [
+        {
+            q: "शिक्षण की अन्तःक्रियात्मक अवस्था (Interactive phase of teaching) में मुख्य संक्रिया होती है-",
+            options: ["क्रिया और प्रतिक्रिया की", "निदान की", "प्रत्यक्षीकरण की", "उपर्युक्त सभी"],
+            ans: 3,
+            exp: "फिलिप जैक्सन के अनुसार अन्तःक्रियात्मक अवस्था में प्रत्यक्षीकरण (Perception), निदान (Diagnosis) और क्रिया-प्रतिक्रिया (Action & Reaction) तीनों होते हैं।"
+        },
+        {
+            q: "सूक्ष्म शिक्षण (Micro-Teaching) के भारतीय मानक चक्र (NCERT) की कुल अवधि कितनी होती है?",
+            options: ["30 मिनट", "36 मिनट", "40 मिनट", "45 मिनट"],
+            ans: 1,
+            exp: "NCERT के अनुसार भारतीय प्रतिमान में सूक्ष्म शिक्षण चक्र 36 मिनट का होता है: शिक्षण (6) + प्रतिपुष्टि (6) + पुनः योजना (12) + पुनः शिक्षण (6) + पुनः प्रतिपुष्टि (6) = 36 मिनट।"
+        },
+        {
+            q: "निम्नलिखित में से कौन-सा प्रोजेक्टेड सहायक (Projected Aid) नहीं है?",
+            options: ["स्लाइड प्रोजेक्टर", "ब्लैक बोर्ड (Black Board)", "ओवरहेड प्रोजेक्टर (OHP)", "एपिडियास्कोप"],
+            ans: 1,
+            exp: "ब्लैक बोर्ड एक गैर-प्रक्षेपी (Non-Projected) और द्वि-आयामी (2D) पारंपरिक दृश्य सामग्री है।"
+        }
+    ],
+    "t11": [
+        {
+            q: "भारतीय संविधान का कौन-सा अनुच्छेद राज्य को महिलाओं और बच्चों के कल्याण के लिए विशेष प्रावधान बनाने का अधिकार देता है?",
+            options: ["अनुच्छेद 15(3)", "अनुच्छेद 11", "अनुच्छेद 2", "अनुच्छेद 45"],
+            ans: 0,
+            exp: "अनुच्छेद 15(3) राज्य को महिलाओं और बच्चों के उत्थान हेतु विशेष प्रावधान बनाने की सकारात्मक शक्ति प्रदान करता है।"
+        },
+        {
+            q: "कौन-सा मूल नैतिक मूल्य 'सही काम करना, तब भी जब कोई देख नहीं रहा हो' के रूप में परिभाषित किया गया है?",
+            options: ["निष्पक्षता (Fairness)", "सत्यनिष्ठा (Integrity)", "व्यावसायिकता (Professionalism)", "उपर्युक्त में से कोई नहीं"],
+            ans: 1,
+            exp: "सत्यनिष्ठा (Integrity) का अर्थ अंतरात्मा की आवाज से सही आचरण करना है, भले ही कोई निगरानी न कर रहा हो।"
+        }
+    ],
+    "t12": [
+        {
+            q: "शिक्षा का अधिकार अधिनियम, 2009 की किस धारा में विद्यालय प्रबंधन समिति (SMC) का प्रावधान है?",
+            options: ["धारा 18", "धारा 19", "धारा 20", "धारा 21"],
+            ans: 3,
+            exp: "RTE Act 2009 की धारा 21 के अंतर्गत प्रत्येक सरकारी एवं सहायता प्राप्त विद्यालय में SMC का गठन अनिवार्य है (75% अभिभावक, 50% महिलाएँ)।"
+        },
+        {
+            q: "RTE अधिनियम, 2009 के अनुसार शिक्षक के लिए एक सप्ताह में न्यूनतम कितने कार्य घंटे निर्धारित हैं?",
+            options: ["36 घंटे", "33 घंटे", "45 घंटे", "50 घंटे"],
+            ans: 2,
+            exp: "RTE अधिनियम की अनुसूची के अनुसार शिक्षक हेतु तैयारी के घंटों सहित प्रति सप्ताह न्यूनतम 45 कार्य घंटे अनिवार्य हैं।"
+        },
+        {
+            q: "शिक्षा का अधिकार अधिनियम, 2009 की किस धारा के अंतर्गत शिक्षकों द्वारा निजी ट्यूशन देने पर प्रतिबंध लगाया गया है?",
+            options: ["धारा 20", "धारा 28", "धारा 22", "धारा 25"],
+            ans: 1,
+            exp: "धारा 28 के तहत किसी भी शिक्षक द्वारा निजी शिक्षण या निजी ट्यूशन की गतिविधि पर पूर्ण कानूनी प्रतिबंध है।"
+        }
+    ],
+    "t13": [
+        {
+            q: "बच्चों के सीखने के बारे में निम्नलिखित में से कौन-सा कथन सही नहीं है?",
+            options: ["बच्चे चक्रीय (सर्पिलाकार) तरीके से सीखते हैं", "बच्चे रैखिक (Linear) तरीके से सीखते हैं", "बच्चे अपनी गलतियों और त्रुटियों से सीखते हैं", "बच्चे तब सीखते हैं जब वे सक्रिय संबंध बनाने में सक्षम होते हैं"],
+            ans: 1,
+            exp: "अधिगम कभी सीधी सपाट रेखा (Linear) में नहीं होता; यह सदैव चक्रीय/सर्पिलाकार (Spiral) तरीके से होता है।"
+        },
+        {
+            q: "यदि हम कोई मोटर क्रिया दाएँ हाथ से सीखते हैं और उसी कारण बाएँ हाथ से वही क्रिया सीखना आसान हो जाता है, तो इसे कहा जाता है-",
+            options: ["सकारात्मक स्थानान्तरण", "नकारात्मक स्थानान्तरण", "शून्य स्थानान्तरण", "द्विपार्श्विक स्थानान्तरण (Bilateral Transfer)"],
+            ans: 3,
+            exp: "शरीर के एक अंग (दाएँ हाथ) को दिए गए प्रशिक्षण का अंतरण दूसरे समरूप अंग (बाएँ हाथ) में होना द्विपार्श्विक स्थानांतरण कहलाता है।"
+        },
+        {
+            q: "सीखने की वह अवधि, जब सीखने की प्रक्रिया में कोई उन्नति नहीं होती, कहलाती है-",
+            options: ["सीखने का वक्र", "सीखने का पठार (Plateau of Learning)", "स्मृति", "अवधान"],
+            ans: 1,
+            exp: "अधिगम वक्र का वह क्षैतिज भाग जहाँ प्रगति रुकी हुई प्रतीत होती है, सीखने का पठार कहलाता है।"
+        }
+    ],
+    "t14": [
+        {
+            q: "जीन पियाजे के सिद्धांत में वह प्रक्रिया जिसमें एक बच्चा नए अनुभव का बोध करने के लिए अपने स्कीमा को रूपांतरित और संशोधित करता है, क्या कहलाती है?",
+            options: ["आत्मसात्करण (Assimilation)", "समायोजन (Accommodation)", "संरक्षण (Conservation)", "केन्द्रीकरण (Centration)"],
+            ans: 1,
+            exp: "नए अनुभव के अनुसार अपने मौजूदा स्कीमा में संशोधन या परिवर्तन करना समायोजन (Accommodation) कहलाता है।"
+        },
+        {
+            q: "लेव वायगोट्स्की के सिद्धांत में वह योजना 'जिसमें अध्यापिका विद्यार्थियों के लिए सवालों का सरलीकरण करती है, उन्हें संकेत देती है और प्राथमिक चरण बताती है' क्या कहलाती है?",
+            options: ["पाड़ (Scaffolding)", "अनुरूपक (Analogy)", "परिपक्वता", "समाजीकरण"],
+            ans: 0,
+            exp: "सीखने के दौरान अधिक जानकार व्यक्ति (MKO) द्वारा दी जाने वाली अस्थायी सहायता व संकेत पाड़ (Scaffolding) कहलाती है।"
+        },
+        {
+            q: "गैग्ने के अधिगम के श्रेणीक्रम में 'नियम अधिगम' (Rule Learning) से ठीक पहले किस प्रकार का अधिगम आता है?",
+            options: ["समस्या समाधान अधिगम", "संकल्पना / संप्रत्यय अधिगम (Concept Learning)", "विभेदीकरण अधिगम", "श्रृंखला अधिगम"],
+            ans: 1,
+            exp: "गैग्ने के 8 स्तरों में छठा स्तर संप्रत्यय अधिगम (Concept Learning) और सातवाँ स्तर नियम अधिगम (Rule Learning) है।"
+        }
+    ],
+    "t15": [
+        {
+            q: "आत्म-संतुष्टि और व्यावसायिक उत्कृष्टता प्राप्त करने के लिए स्वयं अपनाए गए आदर्शों एवं सिद्धांतों के समूह को क्या कहा जाता है?",
+            options: ["व्यावसायिकता", "व्यावसायिक नियम", "नैतिक नियम", "व्यावसायिक आचार-संहिता / नैतिक संहिता (Code of Professional Ethics)"],
+            ans: 3,
+            exp: "आंतरिक आत्म-संतुष्टि और व्यावसायिक उत्कृष्टता हेतु स्वेच्छा से अपनाए गए आदर्शों का समुच्चय व्यावसायिक आचार संहिता कहलाता है।"
+        },
+        {
+            q: "McKinsey 7S Framework में विद्यालय के विभिन्न पदों, उनके अधिकारों और उत्तरदायित्वों की औपचारिक व्यवस्था किस घटक के अंतर्गत आती है?",
+            options: ["Systems (प्रणालियाँ)", "Strategy (रणनीति)", "Structure (संरचना)", "Shared Values (साझा मूल्य)"],
+            ans: 2,
+            exp: "Structure (संरचना) किसी संगठन में विभिन्न पदों, अधिकार सीमा और उत्तरदायित्वों की औपचारिक व्यवस्था को दर्शाता है।"
+        }
+    ],
+    "t16": [
+        {
+            q: "विश्व स्वास्थ्य संगठन (WHO) के अनुसार जीवन कौशल का केंद्रीय आधार क्या है?",
+            options: ["व्यावसायिक दक्षता और आर्थिक स्वतंत्रता", "अनुकूलनशील और सकारात्मक व्यवहार के माध्यम से दैनिक जीवन की चुनौतियों से प्रभावी ढंग से निपटना", "बिना प्रश्न किए सामाजिक नियमों का पालन करना", "केवल बौद्धिक क्षमताओं का विकास करना"],
+            ans: 1,
+            exp: "WHO (1993) के अनुसार जीवन कौशल अनुकूलनशील (Adaptive) और सकारात्मक व्यवहार की वे योग्यताएं हैं जो दैनिक चुनौतियों का सामना करने में सक्षम बनाती हैं।"
+        },
+        {
+            q: "निम्नलिखित में से कौन-सी जीवन कौशल की विशेषता नहीं है?",
+            options: ["इन्हें सीखा एवं विकसित किया जा सकता है", "ये स्वस्थ एवं उचित निर्णय लेने को प्रोत्साहित करते हैं", "ये पूर्णतः आनुवंशिक होते हैं तथा इनमें सुधार नहीं किया जा सकता", "ये व्यक्तियों को दैनिक जीवन की चुनौतियों का सामना करने में सहायता करते हैं"],
+            ans: 2,
+            exp: "जीवन कौशल जन्मजात या आनुवंशिक नहीं होते, बल्कि यह पूर्णतः अर्जित (Learnable) होते हैं जिन्हें अभ्यास व प्रशिक्षण से सुधारा जा सकता है।"
+        }
+    ],
+    "t17": [
+        {
+            q: "शुरू में एक बच्चा अपनी पूरी हथेली का उपयोग करके वस्तु को पकड़ता है। धीरे-धीरे वृद्धि और विकास के रूप में बच्चा उंगलियों और अंगूठे का उपयोग वस्तु को उठाने के लिए करता है। इस प्रकार की प्रगति है-",
+            options: ["सिफेलोकौडल प्रगति (Cephalocaudal)", "प्रॉक्सिमोडिस्टल प्रगति (Proximodistal)", "अनियमित प्रगति", "इनमें से कोई नहीं"],
+            ans: 1,
+            exp: "शरीर के केंद्र (कंधे व पूरी हथेली) से बाहर की ओर सूक्ष्म अंगुलियों पर नियंत्रण होना समीप-दूराभिमुख (Proximodistal) विकास नियम है।"
+        },
+        {
+            q: "भ्रूण (Embryo) किस सप्ताह में स्पष्ट रूप से मानव जैसा दिखाई देने लगता है?",
+            options: ["दूसरा सप्ताह", "चौथा सप्ताह", "आठवाँ सप्ताह (8th week)", "बीसवाँ सप्ताह"],
+            ans: 2,
+            exp: "भ्रूणावस्था (3 से 8 सप्ताह) के अंत अर्थात् 8वें सप्ताह तक सभी प्रमुख अंग बन जाते हैं और भ्रूण मानव शिशु जैसा दिखने लगता है।"
+        },
+        {
+            q: "किशोरावस्था के संबंध में डेविड एल्काइंड के अनुसार 'काल्पनिक श्रोता' (Imaginary Audience) का क्या अर्थ है?",
+            options: ["किशोरों का विश्वास कि दूसरे लोग भी उनके प्रति उतने ही ध्यानाकर्षित हैं जितने कि वे स्वयं", "किशोरों में अद्वितीयता का बोध", "किशोरों द्वारा डायरी लिखना", "सहपाठियों से दूरी बनाना"],
+            ans: 0,
+            exp: "काल्पनिक श्रोता वह किशोर आत्म-केंद्रित सोच है जिसमें किशोर मानता है कि हर कोई लगातार उसी को देख और परख रहा है।"
+        }
+    ],
+    "t18": [
+        {
+            q: "निम्नलिखित में से कौन आंतरिक अभिप्रेरणा (Intrinsic Motivation) का सही वर्णन करता है?",
+            options: ["अभिप्रेरणा जो बाहरी पुरस्कारों से आती है", "अभिप्रेरणा जो कार्य के व्यक्तिगत आनंद से आती है", "अभिप्रेरणा जो दूसरों के साथ प्रतिस्पर्धा से आती है", "अभिप्रेरणा जो दंड के भय से आती है"],
+            ans: 1,
+            exp: "आंतरिक अभिप्रेरणा कार्य करने से मिलने वाले आंतरिक संतोष, जिज्ञासा और व्यक्तिगत आनंद (Personal Enjoyment) से उत्पन्न होती है।"
+        },
+        {
+            q: "अभिप्रेरणा के आरोपण सिद्धांत (Attribution Theory) के अनुसार निम्नलिखित में से किससे लगातार कोशिश और बेहतर प्रदर्शन की संभावना है?",
+            options: ["सफलता के लिए आंतरिक और असफलता के लिए बाहरी आरोपण", "सफलता के लिए बाहरी और असफलता के लिए आंतरिक आरोपण", "असफलता और सफलता दोनों के लिए आंतरिक आरोपण", "असफलता और सफलता दोनों के लिए बाहरी आरोपण"],
+            ans: 2,
+            exp: "बर्नार्ड वीनर के अनुसार जब छात्र सफलता और असफलता दोनों का श्रेय अपने आंतरिक प्रयासों को देता है, तभी वह निरंतर सुधार व कोशिश करता है।"
+        }
+    ]
+};
+
+// ============================================================================
+// 3. STATE & STORAGE MANAGEMENT
+// ============================================================================
+let QUESTION_BANK = {};
+let activeQuestions = [];
+let currentIndex = 0;
+let userAnswers = [];
+let markedReview = [];
+let visitedState = [];
+let timerInterval = null;
+let autoNextInterval = null;
+let secondsLeft = 0;
+let currentTestTitle = "";
+let currentMode = "QUIZ"; // "QUIZ" or "EXAM"
+
+function loadQuestionBank() {
+    const saved = localStorage.getItem("supertet_2026_qbank_v1");
+    if (saved) {
+        try {
+            QUESTION_BANK = JSON.parse(saved);
+        } catch (e) {
+            QUESTION_BANK = JSON.parse(JSON.stringify(DEFAULT_QUESTION_BANK));
+        }
+    } else {
+        QUESTION_BANK = JSON.parse(JSON.stringify(DEFAULT_QUESTION_BANK));
+    }
+    TOPICS.forEach(t => {
+        if (!QUESTION_BANK[t.id]) QUESTION_BANK[t.id] = [];
+    });
+}
+
+function saveQuestionBank() {
+    localStorage.setItem("supertet_2026_qbank_v1", JSON.stringify(QUESTION_BANK));
+}
+
+// ============================================================================
+// 4. UI INITIALIZATION
+// ============================================================================
+function renderHome() {
+    const topicSelect = document.getElementById("topicSelect");
+    const importSelect = document.getElementById("importTopicSelect");
+    const grid = document.getElementById("topicsGrid");
+
+    topicSelect.innerHTML = '<option value="ALL">All 18 Topics (Combined Mega Mock Test)</option>';
+    importSelect.innerHTML = '';
+    grid.innerHTML = '';
+
+    let totalQs = 0;
+
+    TOPICS.forEach(t => {
+        const count = (QUESTION_BANK[t.id] || []).length;
+        totalQs += count;
+
+        const opt1 = document.createElement("option");
+        opt1.value = t.id;
+        opt1.textContent = `${t.name} (${count} Qs)`;
+        topicSelect.appendChild(opt1);
+
+        const opt2 = document.createElement("option");
+        opt2.value = t.id;
+        opt2.textContent = t.name;
+        importSelect.appendChild(opt2);
+
+        const card = document.createElement("div");
+        card.className = "topic-card";
+        card.innerHTML = `
+            <div>
+                <div class="topic-header">
+                    <div class="topic-title">${t.name}</div>
+                    <span class="topic-badge">${count} / 151 Qs</span>
+                </div>
+                <div class="topic-meta">UP SUPERTET 2026 • PDF Verified Topic</div>
+            </div>
+            <div class="topic-actions">
+                <button class="btn-start-topic" onclick="launchTopicTest('${t.id}', 'QUIZ')">Quiz Mode</button>
+                <button class="btn-start-topic" style="background:var(--secondary); border-color:var(--secondary);" onclick="launchTopicTest('${t.id}', 'EXAM')">Exam Mode</button>
+                <button class="btn-add-q" onclick="openImportModal('${t.id}')">+ Qs</button>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+
+    document.getElementById("totalBankCount").textContent = `Total Questions Loaded: ${totalQs}`;
+}
+
+function switchView(viewId) {
+    document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+    document.getElementById(viewId).classList.add("active");
+    window.scrollTo(0, 0);
+}
+
+function goHome() {
+    if (timerInterval) clearInterval(timerInterval);
+    cancelAutoAdvance();
+    renderHome();
+    switchView("homeView");
+}
+
+// ============================================================================
+// 5. START & RUN QUIZ / EXAM MODE
+// ============================================================================
+function launchTopicTest(topicId, mode = "QUIZ") {
+    document.getElementById("topicSelect").value = topicId;
+    document.getElementById("testModeSelect").value = mode;
+    startSelectedMock();
+}
+
+function startSelectedMock() {
+    const selectedTopic = document.getElementById("topicSelect").value;
+    currentMode = document.getElementById("testModeSelect").value;
+    const limitVal = document.getElementById("questionLimit").value;
+    const mins = parseInt(document.getElementById("timeLimit").value) || 60;
+
+    let pool = [];
+    if (selectedTopic === "ALL") {
+        currentTestTitle = "All 18 Topics - Combined Mega Mock Test";
+        TOPICS.forEach(t => {
+            (QUESTION_BANK[t.id] || []).forEach(item => {
+                pool.push({ ...item, topicName: t.name });
+            });
+        });
+    } else {
+        const tObj = TOPICS.find(x => x.id === selectedTopic);
+        currentTestTitle = tObj ? tObj.name : "Topic Mock Test";
+        (QUESTION_BANK[selectedTopic] || []).forEach(item => {
+            pool.push({ ...item, topicName: currentTestTitle });
+        });
+    }
+
+    if (pool.length === 0) {
+        alert("इस टॉपिक में अभी कोई प्रश्न नहीं है। कृपया पहले '+ Qs' या 'Import Questions' से प्रश्न जोड़ें।");
+        return;
+    }
+
+    if (limitVal !== "ALL") {
+        const maxQ = parseInt(limitVal);
+        if (pool.length > maxQ) {
+            pool = pool.slice(0, maxQ);
+        }
+    }
+
+    activeQuestions = pool;
+    currentIndex = 0;
+    userAnswers = new Array(activeQuestions.length).fill(null);
+    markedReview = new Array(activeQuestions.length).fill(false);
+    visitedState = new Array(activeQuestions.length).fill(false);
+
+    // Update Mode UI indicators
+    const pill = document.getElementById("activeModePill");
+    if (currentMode === "QUIZ") {
+        pill.textContent = "QUIZ MODE (Auto-Next + Explanation)";
+        document.getElementById("clearBtn").style.display = "none";
+        document.getElementById("reviewBtn").style.display = "none";
+    } else {
+        pill.textContent = "EXAM MODE (CBT)";
+        document.getElementById("clearBtn").style.display = "inline-block";
+        document.getElementById("reviewBtn").style.display = "inline-block";
+    }
+
+    secondsLeft = mins * 60;
+    startTimer();
+    buildPalette();
+    renderQuestion();
+    switchView("quizView");
+}
+
+function startTimer() {
+    if (timerInterval) clearInterval(timerInterval);
+    updateTimerUI();
+    timerInterval = setInterval(() => {
+        secondsLeft--;
+        updateTimerUI();
+        if (secondsLeft <= 0) {
+            clearInterval(timerInterval);
+            cancelAutoAdvance();
+            alert("समय समाप्त! आपका टेस्ट स्वतः सबमिट किया जा रहा है।");
+            submitQuiz(true);
+        }
+    }, 1000);
+}
+
+function updateTimerUI() {
+    const m = Math.floor(secondsLeft / 60).toString().padStart(2, '0');
+    const s = (secondsLeft % 60).toString().padStart(2, '0');
+    document.getElementById("timerDisplay").textContent = `⏱ ${m}:${s}`;
+}
+
+function buildPalette() {
+    const pal = document.getElementById("paletteGrid");
+    pal.innerHTML = "";
+    activeQuestions.forEach((_, idx) => {
+        const btn = document.createElement("button");
+        btn.className = "pal-btn";
+        btn.id = `pal_${idx}`;
+        btn.textContent = idx + 1;
+        btn.onclick = () => {
+            cancelAutoAdvance();
+            currentIndex = idx;
+            renderQuestion();
+        };
+        pal.appendChild(btn);
+    });
+}
+
+function updatePaletteStyles() {
+    activeQuestions.forEach((item, idx) => {
+        const btn = document.getElementById(`pal_${idx}`);
+        if (!btn) return;
+        btn.className = "pal-btn";
+        if (idx === currentIndex) btn.classList.add("current");
+
+        if (currentMode === "QUIZ") {
+            if (userAnswers[idx] !== null) {
+                if (userAnswers[idx] === item.ans) {
+                    btn.classList.add("answered");
+                } else {
+                    btn.classList.add("wrong-ans");
+                }
+            } else if (visitedState[idx]) {
+                btn.classList.add("visited");
+            }
+        } else {
+            if (markedReview[idx]) {
+                btn.classList.add("marked");
+            } else if (userAnswers[idx] !== null) {
+                btn.classList.add("answered");
+            } else if (visitedState[idx]) {
+                btn.classList.add("visited");
+            }
+        }
+    });
+}
+
+function cancelAutoAdvance() {
+    if (autoNextInterval) {
+        clearInterval(autoNextInterval);
+        autoNextInterval = null;
+    }
+    const bar = document.getElementById("autoNextBar");
+    if (bar) bar.style.display = "none";
+}
+
+function renderQuestion() {
+    cancelAutoAdvance();
+    visitedState[currentIndex] = true;
+    const item = activeQuestions[currentIndex];
+    const isLastQuestion = (currentIndex === activeQuestions.length - 1);
+
+    document.getElementById("qCounter").textContent = `Question ${currentIndex + 1} of ${activeQuestions.length}`;
+    document.getElementById("qTopicBadge").textContent = item.topicName;
+    document.getElementById("questionText").textContent = item.q;
+
+    // Update Next Button label on last question
+    const nextBtn = document.getElementById("nextBtn");
+    if (isLastQuestion) {
+        nextBtn.textContent = "Finish & Submit ✓";
+        nextBtn.style.background = "var(--success)";
+    } else {
+        nextBtn.textContent = currentMode === "QUIZ" ? "Next →" : "Save & Next →";
+        nextBtn.style.background = "var(--primary)";
+    }
+
+    const optContainer = document.getElementById("optionsContainer");
+    optContainer.innerHTML = "";
+    const labels = ["A", "B", "C", "D", "E"];
+    const alreadyAnswered = (userAnswers[currentIndex] !== null);
+
+    item.options.forEach((optText, idx) => {
+        const div = document.createElement("div");
+        div.className = "option-item";
+
+        if (currentMode === "QUIZ" && alreadyAnswered) {
+            div.classList.add("locked");
+            if (idx === item.ans) {
+                div.classList.add("quiz-correct");
+            } else if (idx === userAnswers[currentIndex]) {
+                div.classList.add("quiz-wrong");
+            }
+        } else if (userAnswers[currentIndex] === idx) {
+            div.classList.add("selected");
+        }
+
+        div.innerHTML = `
+            <span class="option-prefix">${labels[idx] || idx + 1}</span>
+            <span>${optText}</span>
+        `;
+
+        div.onclick = () => {
+            if (currentMode === "QUIZ") {
+                if (userAnswers[currentIndex] !== null) return; // Lock once answered in Quiz Mode
+                userAnswers[currentIndex] = idx;
+                renderQuestion();
+                triggerQuizAutoAdvance(idx === item.ans);
+            } else {
+                userAnswers[currentIndex] = idx;
+                renderQuestion();
+            }
+        };
+        optContainer.appendChild(div);
+    });
+
+    // Show or hide Live Explanation in Quiz Mode
+    const feedbackBox = document.getElementById("liveFeedbackBox");
+    if (currentMode === "QUIZ" && alreadyAnswered) {
+        const isCorrect = (userAnswers[currentIndex] === item.ans);
+        feedbackBox.style.display = "block";
+        feedbackBox.style.borderLeftColor = isCorrect ? "var(--success)" : "var(--danger)";
+        document.getElementById("liveResultHeader").innerHTML = isCorrect
+            ? `<span style="color:var(--success);">✓ सही उत्तर! (Correct)</span>`
+            : `<span style="color:var(--danger);">✗ गलत उत्तर! सही विकल्प: (${labels[item.ans]}) ${item.options[item.ans]}</span>`;
+        document.getElementById("liveExplanationText").innerHTML = `<strong>व्याख्या:</strong> ${item.exp || "इस प्रश्न के लिए विस्तृत व्याख्या उपलब्ध नहीं है।"}`;
+    } else {
+        feedbackBox.style.display = "none";
+    }
+
+    updatePaletteStyles();
+}
+
+function triggerQuizAutoAdvance(isCorrect) {
+    const isLastQuestion = (currentIndex === activeQuestions.length - 1);
+    const autoNextBar = document.getElementById("autoNextBar");
+
+    // Not applicable for the last question
+    if (isLastQuestion) {
+        autoNextBar.style.display = "flex";
+        document.getElementById("autoCountdownText").textContent = "🏁 यह अंतिम प्रश्न है (Auto-switch लागू नहीं)। नीचे 'Finish & Submit' पर क्लिक करें।";
+        const pauseBtn = autoNextBar.querySelector("button");
+        if (pauseBtn) pauseBtn.style.display = "none";
+        return;
+    }
+
+    const pauseBtn = autoNextBar.querySelector("button");
+    if (pauseBtn) pauseBtn.style.display = "inline-block";
+
+    // 6 seconds wait for right question, 10 seconds wait for wrong question
+    let waitSec = isCorrect ? 6 : 10;
+    autoNextBar.style.display = "flex";
+    document.getElementById("autoCountdownText").textContent =
+        isCorrect
+            ? `⏳ सही उत्तर! ${waitSec} सेकंड में अगला प्रश्न स्वतः खुलेगा...`
+            : `⏳ गलत उत्तर! व्याख्या पढ़ें — ${waitSec} सेकंड में अगला प्रश्न स्वतः खुलेगा...`;
+
+    autoNextInterval = setInterval(() => {
+        waitSec--;
+        if (waitSec > 0) {
+            document.getElementById("autoCountdownText").textContent =
+                isCorrect
+                    ? `⏳ सही उत्तर! ${waitSec} सेकंड में अगला प्रश्न स्वतः खुलेगा...`
+                    : `⏳ गलत उत्तर! व्याख्या पढ़ें — ${waitSec} सेकंड में अगला प्रश्न स्वतः खुलेगा...`;
+        } else {
+            cancelAutoAdvance();
+            if (currentIndex < activeQuestions.length - 1) {
+                currentIndex++;
+                renderQuestion();
+            }
+        }
+    }, 1000);
+}
+
+function nextQuestion() {
+    cancelAutoAdvance();
+    if (currentIndex < activeQuestions.length - 1) {
+        currentIndex++;
+        renderQuestion();
+    } else {
+        submitQuiz(false);
+    }
+}
+
+function prevQuestion() {
+    cancelAutoAdvance();
+    if (currentIndex > 0) {
+        currentIndex--;
+        renderQuestion();
+    }
+}
+
+function clearResponse() {
+    if (currentMode === "QUIZ") return;
+    userAnswers[currentIndex] = null;
+    markedReview[currentIndex] = false;
+    renderQuestion();
+}
+
+function toggleMarkReview() {
+    if (currentMode === "QUIZ") return;
+    markedReview[currentIndex] = !markedReview[currentIndex];
+    nextQuestion();
+}
+
+// ============================================================================
+// 6. SUBMIT, RESULT ANALYSIS & PRINT FUNCTION
+// ============================================================================
+function submitQuiz(force = false) {
+    if (!force && !confirm("क्या आप वाकई अपना टेस्ट सबमिट करना चाहते हैं?")) {
+        return;
+    }
+    if (timerInterval) clearInterval(timerInterval);
+    cancelAutoAdvance();
+
+    let correct = 0;
+    let wrong = 0;
+    let skipped = 0;
+
+    const reviewContainer = document.getElementById("reviewContainer");
+    reviewContainer.innerHTML = "";
+    const labels = ["A", "B", "C", "D", "E"];
+
+    activeQuestions.forEach((item, idx) => {
+        const userAns = userAnswers[idx];
+        let statusClass = "skipped-card";
+        let statusText = "Unattempted";
+
+        if (userAns === null) {
+            skipped++;
+        } else if (userAns === item.ans) {
+            correct++;
+            statusClass = "correct-card";
+            statusText = "Correct ✓";
+        } else {
+            wrong++;
+            statusClass = "wrong-card";
+            statusText = "Incorrect ✗";
+        }
+
+        const card = document.createElement("div");
+        card.className = `review-card ${statusClass}`;
+
+        const userChoiceText = userAns !== null ? `(${labels[userAns]}) ${item.options[userAns]}` : "कोई विकल्प नहीं चुना गया";
+        const correctChoiceText = `(${labels[item.ans]}) ${item.options[item.ans]}`;
+
+        card.innerHTML = `
+            <div style="display:flex; justify-content:space-between; font-size:0.82rem; color:var(--text-muted); margin-bottom:6px;">
+                <span>Q.${idx + 1} • ${item.topicName}</span>
+                <strong>${statusText}</strong>
+            </div>
+            <div style="font-weight:600; margin-bottom:10px; white-space:pre-line;">${item.q}</div>
+            <div style="font-size:0.92rem; margin-bottom:4px;"><strong>आपका उत्तर:</strong> ${userChoiceText}</div>
+            <div style="font-size:0.92rem; color:var(--success);"><strong>सही उत्तर:</strong> ${correctChoiceText}</div>
+            ${item.exp ? `<div class="explanation-box"><strong>व्याख्या:</strong> ${item.exp}</div>` : ''}
+        `;
+        reviewContainer.appendChild(card);
+    });
+
+    const attempted = correct + wrong;
+    const accuracy = attempted > 0 ? Math.round((correct / attempted) * 100) : 0;
+
+    document.getElementById("resultTitle").textContent = `${currentTestTitle} (${currentMode === "QUIZ" ? "Quiz Mode" : "Exam Mode"})`;
+    document.getElementById("resultSubtitle").textContent = `Score: ${correct} / ${activeQuestions.length}`;
+    document.getElementById("statTotal").textContent = activeQuestions.length;
+    document.getElementById("statCorrect").textContent = correct;
+    document.getElementById("statWrong").textContent = wrong;
+    document.getElementById("statSkipped").textContent = skipped;
+    document.getElementById("statAccuracy").textContent = `${accuracy}%`;
+
+    switchView("resultView");
+}
+
+function printResult() {
+    window.print();
+}
+
+// ============================================================================
+// 7. IMPORT / ADD 151 QUESTIONS MODAL LOGIC
+// ============================================================================
+function openImportModal(preselectTopicId = null) {
+    if (preselectTopicId) {
+        document.getElementById("importTopicSelect").value = preselectTopicId;
+    }
+    document.getElementById("importJsonInput").value = "";
+    document.getElementById("importModal").classList.add("open");
+}
+
+function closeImportModal() {
+    document.getElementById("importModal").classList.remove("open");
+}
+
+function processImport() {
+    const topicId = document.getElementById("importTopicSelect").value;
+    const raw = document.getElementById("importJsonInput").value.trim();
+    if (!raw) {
+        alert("कृपया JSON कोड पेस्ट करें।");
+        return;
+    }
+    try {
+        const parsed = JSON.parse(raw);
+        if (!Array.isArray(parsed)) {
+            throw new Error("डेटा एक Array [...] होना चाहिए।");
+        }
+        let added = 0;
+        parsed.forEach(item => {
+            if (item.q && Array.isArray(item.options) && typeof item.ans === "number") {
+                QUESTION_BANK[topicId].push({
+                    q: item.q,
+                    options: item.options,
+                    ans: item.ans,
+                    exp: item.exp || ""
+                });
+                added++;
+            }
+        });
+        saveQuestionBank();
+        renderHome();
+        closeImportModal();
+        alert(`सफलतापूर्वक ${added} नए प्रश्न इस टॉपिक में जोड़ दिए गए हैं!`);
+    } catch (err) {
+        alert("JSON फॉर्मेट में त्रुटि है: " + err.message);
+    }
+}
+
+function resetSavedData() {
+    if (confirm("क्या आप कस्टम जोड़े गए प्रश्नों को हटाकर डिफ़ॉल्ट प्रश्नों पर रीसेट करना चाहते हैं?")) {
+        localStorage.removeItem("supertet_2026_qbank_v1");
+        loadQuestionBank();
+        renderHome();
+        closeImportModal();
+    }
+}
+
+// Boot App
+initTheme();
+loadQuestionBank();
+renderHome();
+</script>
+</body>
+</html>
